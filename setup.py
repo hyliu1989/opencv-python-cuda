@@ -18,7 +18,8 @@ def main():
     is_CI_build = True if CI_BUILD == "1" else False
     cmake_source_dir = "opencv"
     minimum_supported_numpy = "1.13.3"
-    build_contrib = get_build_env_var_by_name("contrib")
+    # build_contrib = get_build_env_var_by_name("contrib")
+    build_contrib = True
     build_headless = get_build_env_var_by_name("headless")
     build_java = "ON" if get_build_env_var_by_name("java") else "OFF"
     build_rolling = get_build_env_var_by_name("rolling")
@@ -190,6 +191,27 @@ def main():
             "-DBUILD_DOCS=OFF",
             "-DPYTHON3_LIMITED_API=ON",
             "-DBUILD_OPENEXR=ON",
+            # local modification
+            "-DBUILD_opencv_ts=OFF",
+            "-DOpenGL_GL_PREFERENCE=GLVND",
+            "-DBUILD_TBB=ON",
+            "-DWITH_TBB=ON",
+            "-DENABLE_FAST_MATH=1",
+            "-DCUDA_FAST_MATH=1",
+            "-DWITH_CUBLAS=1",
+            "-DWITH_CUDA=ON",
+            "-DBUILD_TIFF=ON",
+            "-DBUILD_opencv_cudacodec=OFF",
+            "-DWITH_CUDNN=OFF",
+            "-DOPENCV_DNN_CUDA=OFF",
+            "-DCUDA_ARCH_BIN=7.5",
+            "-DCUDA_ARCH_PTX=75",
+            "-DWITH_V4L=ON",
+            "-DWITH_OPENGL=ON",
+            "-DWITH_GSTREAMER=ON",
+            "-DOPENCV_GENERATE_PKGCONFIG=ON",
+            "-DOPENCV_PC_FILE_NAME=opencv.pc",
+            "-DOPENCV_ENABLE_NONFREE=ON",
         ]
         + (
             # CMake flags for windows/arm64 build
