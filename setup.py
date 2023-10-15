@@ -194,8 +194,8 @@ def main():
             # local modification
             "-DBUILD_opencv_ts=OFF",
             "-DOpenGL_GL_PREFERENCE=GLVND",
-            "-DBUILD_TBB=ON",
-            "-DWITH_TBB=ON",
+            "-DBUILD_TBB=OFF",
+            "-DWITH_TBB=OFF",
             "-DENABLE_FAST_MATH=1",
             "-DCUDA_FAST_MATH=1",
             "-DWITH_CUBLAS=1",
