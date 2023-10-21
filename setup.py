@@ -22,7 +22,8 @@ def main():
     build_contrib = True
     build_headless = get_build_env_var_by_name("headless")
     build_java = "ON" if get_build_env_var_by_name("java") else "OFF"
-    build_rolling = get_build_env_var_by_name("rolling")
+    # build_rolling = get_build_env_var_by_name("rolling")
+    build_rolling = True
 
     install_requires = [
         'numpy>=1.13.3; python_version<"3.7"',
@@ -205,8 +206,8 @@ def main():
             "-DBUILD_opencv_cudaoptflow=ON",
             "-DWITH_CUDNN=OFF",
             "-DOPENCV_DNN_CUDA=OFF",
-            "-DCUDA_ARCH_BIN=7.5",
-            "-DCUDA_ARCH_PTX=75",
+            "-DCUDA_ARCH_BIN=5.0;5.2;6.0;6.1;7.0;7.5;8.0;8.6;8.9;9.0",
+            "-DCUDA_ARCH_PTX=9.0",
             "-DWITH_V4L=ON",
             "-DWITH_OPENGL=ON",
             "-DWITH_GSTREAMER=ON",
