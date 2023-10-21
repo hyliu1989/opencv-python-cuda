@@ -131,8 +131,8 @@ def main():
         [
             r"python/cv2/.*config.*.py"
         ]
-        +
-        [ r"python/cv2/py.typed" ] if sys.version_info >= (3, 6) else []
+        # +
+        # [ r"python/cv2/py.typed" ] if sys.version_info >= (3, 6) else []
         ,
         "cv2.data": [  # OPENCV_OTHER_INSTALL_PATH
             ("etc" if os.name == "nt" else "share/opencv4") + r"/haarcascades/.*\.xml"
@@ -151,8 +151,8 @@ def main():
         ],
     }
 
-    if sys.version_info >= (3, 6):
-        rearrange_cmake_output_data["cv2.typing"] = ["python/cv2" + r"/typing/.*\.py"]
+    # if sys.version_info >= (3, 6):
+    #     rearrange_cmake_output_data["cv2.typing"] = ["python/cv2" + r"/typing/.*\.py"]
 
     # Files in sourcetree outside package dir that should be copied to package.
     # Raw paths relative to sourcetree root.
@@ -202,6 +202,7 @@ def main():
             "-DWITH_CUDA=ON",
             "-DBUILD_TIFF=ON",
             "-DBUILD_opencv_cudacodec=OFF",
+            "-DBUILD_opencv_cudaoptflow=ON",
             "-DWITH_CUDNN=OFF",
             "-DOPENCV_DNN_CUDA=OFF",
             "-DCUDA_ARCH_BIN=7.5",
