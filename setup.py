@@ -22,8 +22,7 @@ def main():
     build_contrib = True
     build_headless = get_build_env_var_by_name("headless")
     build_java = "ON" if get_build_env_var_by_name("java") else "OFF"
-    # build_rolling = get_build_env_var_by_name("rolling")
-    build_rolling = True
+    build_rolling = get_build_env_var_by_name("rolling")
 
     install_requires = [
         'numpy>=1.13.3; python_version<"3.7"',
